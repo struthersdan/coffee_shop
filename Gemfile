@@ -58,3 +58,5 @@ gem 'devise', '4.3.0'
 
 gem 'slim-rails', '3.1.3'
 gem 'rubocop', '0.51.0'
+gem 'faker', '1.8.4'
+gem 'slim', '3.0.8'
