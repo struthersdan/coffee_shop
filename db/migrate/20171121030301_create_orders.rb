@@ -1,9 +1,10 @@
 class CreateOrders < ActiveRecord::Migration[5.1]
   def change
     create_table :orders do |t|
-      t.string :status
-      t.string :customer_id
-      t.string :integer
+      t.decimal :subtotal
+      t.decimal :tax
+      t.decimal :total
+      t.references :order_status, foreign_key: true
 
       t.timestamps
     end

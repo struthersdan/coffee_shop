@@ -20,3 +20,9 @@
 # Province.create!(name: 'Québec', GST: 0.05, code: 'QC')
 # Province.create!(name: 'Saskatchewan', GST: 0.05, code: 'SK')
 # Province.create!(name: 'Yukon', GST: 0.05, code: 'YT')
+
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"

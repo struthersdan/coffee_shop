@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  status: MyString
-  customer_id: MyString
-  integer: MyString
+  subtotal: 9.99
+  tax: 9.99
+  total: 9.99
+  order_status: one
 
 two:
-  status: MyString
-  customer_id: MyString
-  integer: MyString
+  subtotal: 9.99
+  tax: 9.99
+  total: 9.99
+  order_status: two

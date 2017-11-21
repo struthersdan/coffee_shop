@@ -31,3 +31,4 @@ semantic/src/themes
 semantic/src/semantic.less
 semantic/src/theme.less
 semantic/tasks
+tmp/*
