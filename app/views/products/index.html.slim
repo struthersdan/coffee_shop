@@ -1,4 +1,10 @@
 h3.text-center Products for Sale
+- content_for :search do
+  .large-8.small-9.columns
+    = search_form_for @search do |f|
+      = f.text_field :name_or_description_or_category_name_cont, class: "radius-left expand", placeholder: "Search"
+      .large-4.small-3.columns
+      = f.submit "Search", class: "radius-right button"
 .row
   .col-xs-6.col-xs-offset-3
     - @products.each do |product|
