@@ -10,7 +10,26 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require semantic.min
  */
+ @import "bootstrap";
+
+.left-div {
+	display: inline-block;
+	max-width: 150px;
+	text-align: left;
+	border-radius: 3px;
+	margin: 15px;
+	vertical-align: top;
+}
+.right-div {
+  clear:both;
+  float:right;
+	display: inline-block;
+	max-width: 900px;
+	text-align: left;
+	border-radius: 3px;
+	margin: 15px;
+}
+.form_control{
+  max-width: 30px
+}

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/show'
+
   get 'order_items/create'
 
   get 'order_items/update'
@@ -18,10 +20,11 @@ Rails.application.routes.draw do
   resources :products, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :categories, only: [:show]
   root to: "products#index"
 
   resources :pages
-
+  
   devise_for :customers, :controllers => { registrations: 'registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
