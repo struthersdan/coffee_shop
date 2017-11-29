@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :charges, only: %i[new create]
   resources :pages
-
+  
   devise_for :customers, :controllers => { registrations: 'registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
