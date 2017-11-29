@@ -14,5 +14,6 @@ html
     = csrf_meta_tags
   body
    = render 'layouts/header'
-   = yield(:search)
+   .container
+    = yield(:search)
    = yield
