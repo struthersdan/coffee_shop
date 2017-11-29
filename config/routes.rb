@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+
+  get 'charges/create'
+
   get 'categories/show'
 
   get 'order_items/create'
