@@ -1,11 +1,17 @@
-ul.right
-    li= link_to "My Store", root_path
-    li= link_to "About", about_path
-    li= link_to "Contact", contact_path
-    li= render(:partial => 'layouts/cart_text')
-    / - if signed_in?
-    /   li= link_to customer.email, edit_user_registration_path
-    /   li= link_to "Logout", destroy_user_session_path, method: :delete
-    / - else
-    /   li= link_to "Register", new_user_registration_path
-    /   li= link_to "Login", new_user_session_path
+nav.navbar.navbar-fixed-top.navbar-default role="navigation"
+  .container-fluid
+    .navbar-header
+      a.navbar-brand = link_to "James & Sons", root_path
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active = link_to "Home", root_path
+        li = link_to "About Us", about_path
+        li = link_to "Contact Us", contact_path
+      ul.nav.navbar-nav.navbar-right align="right"
+        li = render(:partial => 'layouts/cart_text')
+        - if signed_in?
+          li = link_to customer.email, edit_customer_registration_path
+          li = link_to "Logout", destroy_customer_session_path, method: :delete
+        - else
+          li = link_to "Register", new_customer_registration_path
+          li = link_to "Login", new_customer_session_path

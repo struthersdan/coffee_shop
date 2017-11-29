@@ -1,2 +1,8 @@
-h1 Charges#create
-p Find me in app/views/charges/create.html.slim
+h2
+  | Thanks, you paid
+  = succeed "!" do
+    strong= number_to_currency(@charge.amount / 100)
+h3 Stripe Customer
+= debug @customer
+h3 Stripe Charge
+= debug @charge

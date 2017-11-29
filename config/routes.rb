@@ -21,14 +21,15 @@ Rails.application.routes.draw do
 
   get 'customers/create'
 
+  root to: "products#index"
+
   resources :products, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
   resources :categories, only: [:show]
-  root to: "products#index"
-
+  resources :charges, only: %i[new create]
   resources :pages
-  
+
   devise_for :customers, :controllers => { registrations: 'registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

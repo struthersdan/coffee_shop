@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/activeadmin/activeadmin.git
-  revision: 48d0156e41de366ddde8559e016405dd5cfcccb7
+  revision: a8534b695340d27c8d67dc4119598c3968388a02
   specs:
     activeadmin (2.0.0.alpha)
       arbre (>= 1.1.1)
@@ -165,9 +165,7 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mime-types (3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mime-types (1.25.1)
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
@@ -189,7 +187,7 @@ GEM
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
-    rack-test (0.8.0)
+    rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
       actioncable (= 5.1.4)
@@ -223,8 +221,8 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
+    rest-client (1.6.9)
+      mime-types (~> 1.16)
     rubocop (0.51.0)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
