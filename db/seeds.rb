@@ -33,5 +33,5 @@ Category.create!(name: 'Pastry')
 Category.create!(name: 'Coffee Beans')
 Category.create!(name: 'Brewing Equipment')
 Category.create!(name: 'Novelties')
- AdminUser.create!(email: 'me@danielstruthers.com', password: 'romeo123', password_confirmation: 'romeo123') if Rails.env.development?
+ AdminUser.create!(email: 'me@danielstruthers.com', password: 'romeo123', password_confirmation: 'romeo123')
  Order.create!()
