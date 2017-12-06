@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
       end
     elsif params[:category_id]
       @products = Product.where(category_id: params[:category_id])
+    elsif params[:new]
+      @products = Product.all.order("created_at DESC").limit(5)
+    elsif params[:updated]
+      @products = Product.all.order("updated_at DESC").limit(5)
     else
       @products = Product.all
     end

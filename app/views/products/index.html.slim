@@ -9,6 +9,8 @@ h3.text-center Products for Sale
   .left-div
     h2 Categories
     h4= link_to "All Products", root_url
+    h4= link_to "New Products", root_url(:new => true)
+    h4= link_to "Updated Products", root_url(:updated => true)
     - @categories.each do |category|
       h4= link_to category.name, root_url(:category_id => category.id)
   .right-div
@@ -17,4 +19,3 @@ h3.text-center Products for Sale
     - else
       - @products.each do |product|
         = render "product_row", product: product, order_item: @order_item
-    = debug params

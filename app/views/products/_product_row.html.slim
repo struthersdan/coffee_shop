@@ -11,8 +11,9 @@
         h4= link_to product.name, root_path(:name => product.name, \
                    :category_id => product.category_id, :single => true)
         - if params[:single]
-          span Category:
-            = Category.find(product.category_id).name
+          span
+          | Category:
+          = Category.find(product.category_id).name
         - if params[:single]
           p = product.description
       .col-xs-4
