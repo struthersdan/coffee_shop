@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121030642) do
+ActiveRecord::Schema.define(version: 20171206021302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20171121030642) do
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -86,15 +86,17 @@ ActiveRecord::Schema.define(version: 20171121030642) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.bigint "order_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["order_id"], name: "index_customers_on_order_id"
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "order_items", force: :cascade do |t|
     t.string "order_status"
     t.string "references"
-    t.integer "product_id"
-    t.integer "order_id"
+    t.bigint "product_id"
+    t.bigint "order_id"
     t.decimal "price"
     t.integer "quantity"
     t.decimal "total_price"
@@ -114,9 +116,11 @@ ActiveRecord::Schema.define(version: 20171121030642) do
     t.decimal "subtotal"
     t.decimal "tax"
     t.decimal "total"
-    t.integer "order_status_id"
+    t.bigint "order_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
@@ -135,9 +139,9 @@ ActiveRecord::Schema.define(version: 20171121030642) do
     t.integer "stock_quantity"
     t.integer "user_id"
     t.integer "category_id"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -150,13 +154,9 @@ ActiveRecord::Schema.define(version: 20171121030642) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "name"
-    t.boolean "admin_rights"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "customers", "orders"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "order_statuses"
 end

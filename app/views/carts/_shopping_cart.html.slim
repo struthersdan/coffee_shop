@@ -9,7 +9,7 @@
 - else
   - @order_items.each do |order_item|
     = render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true
-    - if signed_in?
-      a = link_to "Check Out", 'charges/new'  
-    - else
-      p Please sign in to check out
+  - if signed_in?
+    H2 = link_to "Check Out", 'charges/new'
+  - else
+    H2 Please sign in to check out

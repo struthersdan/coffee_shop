@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'orders/show'
+
+  get 'payments/new'
+
+  get 'payments/thanks'
+
   get 'charges/new'
 
   get 'charges/create'
@@ -15,6 +21,9 @@ Rails.application.routes.draw do
 
   get '/contact' => 'pages#contact',  as: :contact
   get '/about' => 'pages#about',  as: :about
+
+  get '/products/show' => 'products#show', as: :show
+
   get 'pages/about'
 
   get 'products/index'
@@ -23,12 +32,18 @@ Rails.application.routes.draw do
 
   root to: "products#index"
 
-  resources :products, only: [:index]
+  resources :products, only: [:index, :show]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
   resources :categories, only: [:show]
   resources :charges, only: %i[new create]
   resources :pages
+  resources :orders
+
+  resources :payments, only: [:new, :create]
+  get 'payment-thanks', to: 'payments#thanks', as: 'payment_thanks'
+  resources :charges, only: [:new, :create]
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
   
   devise_for :customers, :controllers => { registrations: 'registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config

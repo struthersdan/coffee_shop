@@ -1,8 +1,5 @@
 h2
   | Thanks, you paid
-  = succeed "!" do
-    strong= number_to_currency(@charge.amount / 100)
-h3 Stripe Customer
-= debug @customer
-h3 Stripe Charge
-= debug @charge
+  strong= number_to_currency(@charge.amount.to_f / 100 )
+
+  current_order.c

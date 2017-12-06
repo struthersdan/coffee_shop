@@ -1,9 +1,47 @@
-= form_tag charges_path do
-  article
-    - if flash[:error].present?
-      #error_explanation
-        p= flash[:error]
-    label.amount
-      span
-        | Amount: #{number_to_currency(@amount /100)}
-  script.stripe-button data-amount="#{@amount}" data-description="#{@description}" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-locale="auto" src="https://checkout.stripe.com/checkout.js"
+.container
+  .right_div
+    h1 Shipping Information
+    .form-row
+      label
+        span
+          | Name:
+          = current_customer.name
+    .form-row
+      label
+        span
+          | Address:
+          = current_customer.address
+    .form-row
+      label
+        span
+          | City:
+          = current_customer.city
+    .form-row
+      label
+        span
+          | Postal Code:
+          = current_customer.postal_code
+    = form_tag charges_path do
+      article
+        - if flash[:error].present?
+          #error_explanation
+            p= flash[:error]
+        label.subtotal
+          p
+            | Subtotal: #{number_to_currency(@subtotal /100)}
+        - if !current_customer.province.PST.nil?
+          label.Pst
+            p
+              | PST (#{current_customer.province.PST*100}%): #{number_to_currency(@PST /100)}
+        - if !current_customer.province.GST.nil?
+          label.Gst
+            p
+              | GST (#{current_customer.province.GST*100}%): #{number_to_currency(@GST /100)}
+        - if !current_customer.province.HST.nil?
+          label.Hst
+            p
+              | HST (#{current_customer.province.HST*100}%): #{number_to_currency(@HST /100)}
+        label.amount
+          p
+            | Amount: #{number_to_currency(@amount /100)}
+      script.stripe-button data-amount="#{@amount}" data-description="#{@description}" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-locale="auto" src="https://checkout.stripe.com/checkout.js"

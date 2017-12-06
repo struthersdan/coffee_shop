@@ -1,0 +1,7 @@
+- @customer.each do |customer|
+  | Name: #{customer.name}
+  - customer.orders.each do |order|
+    | Amount: #{order.total}
+    | Status: #{order.order_status}
+
+  br/

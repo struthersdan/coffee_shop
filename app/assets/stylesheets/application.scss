@@ -12,7 +12,9 @@
  *
  */
  @import "bootstrap";
-
+.container{
+  font-size: 20px;
+}
 .left-div {
 	display: inline-block;
 	max-width: 150px;
@@ -32,4 +34,9 @@
 }
 .form_control{
   max-width: 30px
+}
+img{
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
