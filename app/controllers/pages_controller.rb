@@ -1,3 +1,4 @@
+# page controller
 class PagesController < ApplicationController
   def contact
     @contact = Page.find_by(title: 'Contact')

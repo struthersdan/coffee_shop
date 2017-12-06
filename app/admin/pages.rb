@@ -16,7 +16,7 @@ ActiveAdmin.register Page do
     f.inputs do
       f.input :title
       f.input :content
-      f.input :image, :as => :file
+      f.input :image, as: :file
     end
     f.actions
   end

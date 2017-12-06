@@ -1,3 +1,4 @@
+# order controller
 class OrdersController < ApplicationController
   def show
     @customers = Customer.all

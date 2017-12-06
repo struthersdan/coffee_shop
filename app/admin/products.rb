@@ -12,16 +12,18 @@ ActiveAdmin.register Product do
   #   permitted
   # end
 
-  permit_params :category_id, :name, :description, :price, :stock_quantity, :image
+  permit_params :category_id, :name, :description, :price, :stock_quantity, \
+                :image
 
   form do |f|
     f.inputs do
-      f.select :category_id, options_for_select(Category.all.map{|c| [c.name, c.id]}, params:[:id])
+      f.select :category_id, options_for_select(Category.all.map \
+        { |c| [c.name, c.id] }, params: [:id])
       f.input :name
       f.input :description
       f.input :price
       f.input :stock_quantity
-      f.input :image, :as => :file
+      f.input :image, as: :file
     end
     f.actions
   end

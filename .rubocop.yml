@@ -1,0 +1,9 @@
+Metrics/LineLength:
+  Max: 80
+  IgnoredPatterns: ['(\A|\s)#']
+
+AllCops:
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/*'
+    - 'test/*'
