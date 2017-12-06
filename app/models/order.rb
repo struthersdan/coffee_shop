@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :order_status
-  belongs_to :customer
   has_many :order_items
   before_validation :set_order_status
   before_save :update_subtotal

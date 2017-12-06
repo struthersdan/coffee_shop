@@ -21,6 +21,11 @@
         span
           | Postal Code:
           = current_customer.postal_code
+    .form-row
+      label
+        span
+          | Province:
+          = current_customer.province.name
     = form_tag charges_path do
       article
         - if flash[:error].present?
