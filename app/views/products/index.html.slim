@@ -19,3 +19,5 @@ h3.text-center Products for Sale
     - else
       - @products.each do |product|
         = render "product_row", product: product, order_item: @order_item
+  = paginate @products
+  = page_entries_info @products  

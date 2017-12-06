@@ -75,3 +75,4 @@ gem 'taps', '0.3.24'
 gem 'stripe', '3.8.0'
 
 gem 'seed_dump', '3.2.4'
+gem 'kaminari', '1.1.1'

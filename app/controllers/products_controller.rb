@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    @products = @products.page(params[:page]).per(2)
     @order_item = current_order.order_items.new
   end
   def show
